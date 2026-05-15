@@ -1,0 +1,2481 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Java语言与Spring生态系统入门">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-java-spring-dec-2015/uoehiong-swing-ieianhiian-ui-eng---.html">
+      
+      
+        <link rel="prev" href="tdhiongonghiaihenguhiian-ui-eng.html">
+      
+      
+        <link rel="next" href="ehenghiong-spring-data-uaniuaniinghuuu.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>10. [作业]：使用 Swing 界面实现 [ui] 层 - - Java语言与Spring生态系统入门</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Java语言与Spring生态系统入门";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#10-swing-ui-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Java语言与Spring生态系统入门" class="md-header__button md-logo" aria-label="Java语言与Spring生态系统入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Java语言与Spring生态系统入门
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              10. [作业]：使用 Swing 界面实现 [ui] 层 - 
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-java-spring-dec-2015" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Java语言与Spring生态系统入门" class="md-nav__button md-logo" aria-label="Java语言与Spring生态系统入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Java语言与Spring生态系统入门
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-java-spring-dec-2015" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ianie.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uoeeni.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. [作业]：问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="td-ei.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. [TD]: 类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdenengiaou.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. [TD]：分层架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehengspring-uangiauen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. [课程]：Spring 框架入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehengjdbc-api-uen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. [课程]：JDBC API 入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdhiong-jdbc-api-hiian-td-e-dao-eng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. [TD]：使用 JDBC API 实现 TD 的 [DAO] 层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdeueng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. [TD]：[业务]层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdhiongonghiaihenguhiian-ui-eng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. [TD]：使用控制台程序实现 [ui] 层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. [作业]：使用 Swing 界面实现 [ui] 层 - 
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="uoehiong-swing-ieianhiian-ui-eng---.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. [作业]：使用 Swing 界面实现 [ui] 层 - 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#101" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1. 支持
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2. 应用程序的工作原理
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#103-ui-electionsswing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3. 实现 [ui] 层的 [ElectionsSwing] 类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10.3. 实现 [ui] 层的 [ElectionsSwing] 类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1031-netbeans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.1. NetBeans 项目
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1032-maven" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.2. Maven 配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1033" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.3. 构建图形用户界面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1034" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.4. 代码分离
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1035-ielectionsui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.5. 实现 [IElectionsUI] 接口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1036" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.6. 可执行类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1037" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.7. 图形用户界面的初始化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1038-utilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.8. [Utilities] 类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1039-electionsswing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9. [ElectionsSwing] 类的代码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10.3.9. [ElectionsSwing] 类的代码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#10391-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.1. [init] 方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10392-add" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.2. 管理 [Add] 链接的状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10393" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.3. 为每个列表分配票数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10394-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.4. 管理 [Delete] 链接的状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10395" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.5. 删除候选人列表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10396-calculate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.6. 管理 [Calculate] 链接的状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10397" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.7. 计算座位数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10398" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.8. 将结果保存到数据源
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10399" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.9.9. 清除结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#10310" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3.10. 改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehenghiong-spring-data-uaniuaniinghuuu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. [课程]：使用 Spring Data 管理关系型数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdhiong-spring-data-hiian-td-e-dao-eng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. [TD]：使用 [Spring Data] 实现 TD 的 [DAO] 层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehenghiong-spring-mvc-ai-web-hangongaihuuu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. [课程]：使用 Spring MVC 在 Web 上公开数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdeuengewebaou.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. [TD]：[业务]层的Web暴露
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdei-web-uuhuangianeuuan.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. [TD]：为 Web 服务创建客户端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehenghiong-spring-security-aohang-web-uuangennuan.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. [课程]：使用 Spring Security 保障 Web 服务访问安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tduanuhonge-web-uuinuan--json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. [TD]：选举中的 Web 服务器安全 / JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehenguauaniuanongiang.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. [课程]：跨源资源共享
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="td-uauaniuanongiang-cors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. [TD] 跨源资源共享 (CORS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hiong-rxjava-iningiuianheng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. 使用 RxJava 进行异步编程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ieun.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. 附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading318571812363491"></a>
+<a id="application-swing"></a></p>
+<h1 id="10-swing-ui-">10. <span style="color: #365f91">[作业]：使用 Swing 界面实现 [ui] 层 -</span></h1>
+<p><strong>关键词</strong>：多层架构、Spring、依赖注入、Swing 组件库。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000051B000000FD768FBF48.png" width="654" height="127" style="display:inline-block; margin:4px;width:17.291cm;height:3.348cm;" class="odt-zoomable" data-zoom-src="images/100000000000051B000000FD768FBF48.png" /></td></tr></table>
+
+<p><a id="refheading98770873157090"></a></p>
+<h2 id="101">10.1. <span style="color: #4f81bd">支持</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000578000001AE3C23F928.png" width="680" height="209" style="display:inline-block; margin:4px;width:17.999cm;height:5.528cm;" class="odt-zoomable" data-zoom-src="images/1000000000000578000001AE3C23F928.png" /></td></tr></table>
+
+<p>在 [UI] 层，我们希望构建一个 Swing 图形用户界面。NetBeans 提供了一个名为 [Matisse] 的工具来构建这些 Swing 界面，其性能优于 Eclipse 提供的工具。Swing 界面正逐渐被 JavaFX 界面所取代。NetBeans 和 Eclipse 构建后者时使用的是同一个工具。因此，如果我们构建 JavaFX 界面，就可以在整个分层架构中全程使用 Eclipse。</p>
+<p>NetBeans 可以打开任何 Maven 项目。因此，我们将使用之前的 Maven 项目，并向其中添加一个 Swing 界面。 在[2]中，我们通过“文件/打开项目”加载了使用Eclipse构建的三个层的Maven项目。随后，我们构建了这些项目的二进制文件[3]。“构建”和“清理并构建”选项会为所选项目生成二进制文件。这些二进制文件被放置在项目的[target]文件夹中[4-5]：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001BB000001BC4D20CB45.png" width="222" height="222" style="display:inline-block; margin:4px;width:5.861cm;height:5.874cm;" class="odt-zoomable" data-zoom-src="images/10000000000001BB000001BC4D20CB45.png" /></td></tr></table>
+
+<p>[清理] 选项会删除此 [目标] 文件夹。[构建] 选项会重新构建它。经验表明，当出现意外问题时，首先应执行项目的 [清理并构建] 操作，以确保您正在使用最新版本。当您拥有配置文件时，这一点尤为必要——因为这些文件即使被修改，在运行项目时也不会触发自动重新编译。 此时，您必须通过执行 [清理并构建] 来强制重新编译，以便将新版本安装到 [目标] 文件夹中。</p>
+<p><a id="refheading318591812363491"></a></p>
+<h2 id="102">10.2. <span style="color: #4f81bd">应用程序的工作原理</span></h2>
+<p>让我们回到 [Elections] 应用程序的整体架构：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004BB000000FF2B1C6207.png" width="606" height="128" style="display:inline-block; margin:4px;width:16.021cm;height:3.374cm;" class="odt-zoomable" data-zoom-src="images/10000000000004BB000000FF2B1C6207.png" /></td></tr></table>
+
+<p>我们目前正专注于[ui]层的新实现。当前唯一存在的实现是一个控制台界面。我们现在正在创建一个图形用户界面。</p>
+<p>用户将通过以下界面与[Elections]应用程序进行交互：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003A90000035363325D82.png" width="469" height="426" style="display:inline-block; margin:4px;width:12.397cm;height:11.259cm;" class="odt-zoomable" data-zoom-src="images/10000000000003A90000035363325D82.png" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001C0000001A0CEDB96B1.png" width="358" height="333" style="display:inline-block; margin:4px;width:9.479cm;height:8.802cm;" class="odt-zoomable" data-zoom-src="images/10000000000001C0000001A0CEDB96B1.png" /></td></tr></table>
+
+<p>图形用户界面位于[ui]层。正是这一层与用户进行交互。</p>
+<ul>
+  <li>启动时，[<b>main</b>] 控制台应用程序会使用 Spring 实例化应用程序的三个层。这一操作在图形用户界面显示之前就已完成。 此外，在初始化阶段，系统还会向 [dao] 层请求描述选举特征的信息（待填补席位数、选举门槛、参选名单）。如果初始化阶段失败（例如无法访问数据），控制台将显示错误信息，且不会显示图形用户界面。
+  </li>
+</ul>
+
+<ul>
+  <li>若数据读取成功，则显示包含以下信息的图形界面（参见上图截图）：
+  </li>
+</ul>
+
+<ol>
+    <ul>
+      <li>待填补席位数（2）
+      </li>
+      <li>第(3)项中的选举门槛
+      </li>
+      <li>第(4)项中的候选人名单编号及名称
+      </li>
+    </ul>
+</ol>
+
+<ul>
+  <li>随后，用户通过字段4（ID - 名称）、5（票数）和6（添加）为每个候选人名单分配票数。
+  </li>
+</ul>
+
+<p><img src="images/10000000000001AC000000775D50E179.png" width="342" height="95" style="width:9.059cm;height:2.519cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AC000000775D50E179.png" /></p>
+<ul>
+  <li>随后，您可以使用链接 (10) 计算席位：
+  </li>
+</ul>
+
+<p><img src="images/10000000000000BF0000006B6F7C0BD3.png" width="134" height="75" style="width:3.54cm;height:1.983cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000BF0000006B6F7C0BD3.png" /></p>
+<ul>
+  <li>点击 [保存] 链接 (12) 可将结果保存至数据源。
+  </li>
+</ul>
+
+<p><a id="refheading318611812363491"></a></p>
+<h2 id="103-ui-electionsswing">10.3. <span style="color: #4f81bd">实现 [ui] 层的 [ElectionsSwing] 类</span></h2>
+<p><a id="refheading318631812363491"></a></p>
+<h3 id="1031-netbeans">10.3.1. <span style="color: #4f81bd">NetBeans 项目</span></h3>
+<p><strong>注意</strong>：<a href="#refheading78364566070260"><u><span style="color: #0563c1">第 22.4 节</span></u></a>介绍了如何获取 NetBeans。 </p>
+<p>该应用程序的最终 NetBeans 项目将如下所示 [1]。请按照步骤 [2–5] 进行构建：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005AF000001E776D49C18.png" width="680" height="228" style="display:inline-block; margin:4px;width:17.999cm;height:6.024cm;" class="odt-zoomable" data-zoom-src="images/10000000000005AF000001E776D49C18.png" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000245000001A2D2801BB9.png" width="291" height="209" style="display:inline-block; margin:4px;width:7.687cm;height:5.53cm;" class="odt-zoomable" data-zoom-src="images/1000000000000245000001A2D2801BB9.png" /></td></tr></table>
+
+<p>确保项目已配置为使用 JDK 1.8 进行编译 [1-6]：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005980000048CDB9BF98C.png" width="680" height="553" style="display:inline-block; margin:4px;width:17.999cm;height:14.63cm;" class="odt-zoomable" data-zoom-src="images/10000000000005980000048CDB9BF98C.png" /></td></tr></table>
+
+<p><a id="refheading1217141037674463"></a></p>
+<h3 id="1032-maven">10.3.2. <span style="color: #4f81bd">Maven 配置</span></h3>
+<p>新项目 [elections-swing-business-dao-jdbc] 将基于之前的项目 [elections-console-business-dao-jdbc] 构建。为此，请按以下步骤添加 Maven 依赖项 [1-3]：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000700000002C8B7BB149D.png" width="680" height="270" style="display:inline-block; margin:4px;width:17.999cm;height:7.151cm;" class="odt-zoomable" data-zoom-src="images/1000000000000700000002C8B7BB149D.png" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000022A0000019CCFCECBD1.png" width="277" height="206" style="display:inline-block; margin:4px;width:7.329cm;height:5.45cm;" class="odt-zoomable" data-zoom-src="images/100000000000022A0000019CCFCECBD1.png" /></td></tr></table>
+
+<p><a id="refheading318651812363491"></a></p>
+<h3 id="1033">10.3.3. <span style="color: #4f81bd">构建图形用户界面</span></h3>
+<p>要创建图形用户界面，我们可以按照以下步骤进行：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000037100000158A562DFA9.png" width="441" height="172" style="display:inline-block; margin:4px;width:11.656cm;height:4.551cm;" class="odt-zoomable" data-zoom-src="images/100000000000037100000158A562DFA9.png" /></td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002B1000001E0D373F464.png" width="345" height="240" style="display:inline-block; margin:4px;width:9.116cm;height:6.352cm;" class="odt-zoomable" data-zoom-src="images/10000000000002B1000001E0D373F464.png" /></td></tr></table>
+
+<ul>
+  <li>[1]: 将一个对象添加到 [elections.ui.service] 包中
+  </li>
+  <li>[2]: 在 [Swing GUI 表单] 类别中选择 [JFrame 表单] 选项
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F60000017F755E9FA4.png" width="635" height="192" style="display:inline-block; margin:4px;width:16.801cm;height:5.068cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F60000017F755E9FA4.png" /></td></tr></table>
+
+<ul>
+  <li>[4]：为类命名
+  </li>
+  <li>[5]: 类的包名。
+  </li>
+  <li>完成向导。
+  </li>
+  <li>[6]: 生成的类
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000054E00000126B251AB47.png" width="679" height="147" style="display:inline-block; margin:4px;width:17.965cm;height:3.889cm;" class="odt-zoomable" data-zoom-src="images/100000000000054E00000126B251AB47.png" /></td></tr></table>
+
+<ul>
+  <li>[7]: [AbstractElectionsSwing] 类在 [设计] 模式下
+  </li>
+  <li>[8]：显示窗口组件树 [9] 的 [Navigator] 选项卡
+  </li>
+  <li>[10]：[属性] 选项卡，显示在 [9] 中选中的 [JFrame] 组件的属性
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000028E0000012158B404C5.png" width="327" height="144" style="display:inline-block; margin:4px;width:8.652cm;height:3.822cm;" class="odt-zoomable" data-zoom-src="images/100000000000028E0000012158B404C5.png" /></td></tr></table>
+
+<ul>
+  <li>[11]：[JFrame] 是一个组件容器。组件可以在容器内根据各种称为<i>布局的</i>定位规则进行排列。在此，我们选择 [自由布局] [14]，该布局允许组件在容器内自由定位。
+  </li>
+</ul>
+
+<p>我们可以在名为<em>“调色板”的</em>工具栏中找到这些组件：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000594000001925C114E9C.png" width="680" height="192" style="display:inline-block; margin:4px;width:17.999cm;height:5.068cm;" class="odt-zoomable" data-zoom-src="images/1000000000000594000001925C114E9C.png" /></td></tr></table>
+
+<ul>
+  <li>[1]：调色板
+  </li>
+  <li>[2]：将一个 JLabel 组件拖放到组件容器中
+  </li>
+  <li>右键单击它，我们可以访问各种属性：其名称 [4]、其文本 [3] 或其事件处理程序 [5]。我们使用 [3] 来设置文本 [6]。
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000252000001F4BB8FBB0F.png" width="297" height="250" style="display:inline-block; margin:4px;width:7.858cm;height:6.615cm;" class="odt-zoomable" data-zoom-src="images/1000000000000252000001F4BB8FBB0F.png" /></td></tr></table>
+
+<ul>
+  <li>[1]：[JLabel] 组件的 [属性] 选项卡提供了对其属性的访问：水平位置 [2]、垂直位置 [3]、文本字体 [4] 以及文本 [5]。
+  </li>
+</ul>
+
+<p>当在图形界面中拖放并配置组件，且您保存（Ctrl-S）工作时，[AbstractElectionsSwing] 类中会生成代码：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000264000000CF3DE1D0AD.png" width="428" height="145" style="display:inline-block; margin:4px;width:11.329cm;height:3.831cm;" class="odt-zoomable" data-zoom-src="images/1000000000000264000000CF3DE1D0AD.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002850000010FB89AC9E7.png" width="451" height="190" style="display:inline-block; margin:4px;width:11.94cm;height:5.017cm;" class="odt-zoomable" data-zoom-src="images/10000000000002850000010FB89AC9E7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>请勿修改此灰色代码，因为它会在下次保存时被删除并重新生成。任何所做的更改都将因此丢失。</p>
+<p>有关使用 NetBeans 创建图形用户界面的教程，请访问 [<a href="https://netbeans.org/kb/docs/java/quickstart-gui.html?print=yes#design"><u><span style="color: #0563c1">https://netbeans.org/kb/docs/java/quickstart-gui.html?print=yes#design</span></u></a>]（2015 年 11 月）。</p>
+<p>现在我们将构建以下界面：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000394000003415B3742BA.png" width="458" height="417" style="display:inline-block; margin:4px;width:12.118cm;height:11.021cm;" class="odt-zoomable" data-zoom-src="images/1000000000000394000003415B3742BA.png" /></td></tr></table>
+
+<p>该界面的组件如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>编号</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>类型</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>名称</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>作用</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JMenuBar</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jMenuBar1</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">一个菜单</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>2
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelSAP</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">可用座位数</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>3
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelSE</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">选举门槛</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>4
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JComboBox</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jComboBoxListNames</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">竞争名单的名称列表</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>5
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JTextField</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextFieldVotesList</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">列表的票数</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>6
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelAdd</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">用于向 (8) 添加列表</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>7,8
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">(JScrollPane, JList)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jListNamesVoices</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">列表的名称和语音</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>9
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelDelete</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">从 (8) 中移除在 (8) 中选中的列表</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>10
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelCalculate</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">用于计算选举结果</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>11
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelClear</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">用于清除选举结果</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>12
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">JLabel</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jLabelSave</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">用于保存选举结果</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>13,14
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">(JScrollPane, JList)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jListResults</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">用于显示选举结果</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>15,16
+</code></pre></div>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">(JScrollPane,</div><div style="margin:0 0 0.5em 0">JTextPane)</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">jTextPaneMessages</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">用于显示后续消息</div></td></tr></table>
+
+<p>注解 (JScrollPane, JList) [13-14] 的作用是表明：当 [JList] 组件被拖放到窗口中时，它会自动插入到 [JScrollPane] 组件中，从而允许用户滚动浏览列表。 正是 [JScrollPane] 组件使您能够查看列表中的所有项目，尽管在任何给定时刻仅能看到其中有限数量的项目。这同样适用于 [JTextPane] 组件 [15-16]。</p>
+<p>菜单的创建方法如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000059F00000189AD148B2E.png" width="680" height="186" style="display:inline-block; margin:4px;width:17.999cm;height:4.916cm;" class="odt-zoomable" data-zoom-src="images/100000000000059F00000189AD148B2E.png" /></td></tr></table>
+
+<ul>
+  <li>[1, 2]：在窗口中放置一个 [Menu Bar] 组件
+  </li>
+  <li>[3]：如 [导航器] 选项卡中所示的默认菜单
+  </li>
+  <li>[4,5,6]：右键单击菜单选项，您可以：
+    <ul>
+      <li>修改其文本 [4]、名称 [5]
+      </li>
+      <li>管理其事件 [6]
+      </li>
+    </ul>
+  </li>
+  <li>[7]：所需的菜单
+  </li>
+</ul>
+
+<p>所需的菜单如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>一级</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>二级</i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>选举</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>退出</i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>列表</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>添加</i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>删除</i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>结果</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>计算</i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>清除</i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>保存</i></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>关于</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>您可以随时测试图形界面：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000113000000618FF501BE.png" width="192" height="68" style="display:inline-block; margin:4px;width:5.091cm;height:1.796cm;" class="odt-zoomable" data-zoom-src="images/1000000000000113000000618FF501BE.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>在构建界面时，您必须为某些标签和菜单[添加、删除、...]关联事件处理程序。具体操作如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004F50000020F1187B4BD.png" width="635" height="264" style="display:inline-block; margin:4px;width:16.789cm;height:6.973cm;" class="odt-zoomable" data-zoom-src="images/10000000000004F50000020F1187B4BD.png" /></td></tr></table>
+
+<ul>
+  <li>[1]：右键单击您想要管理其事件的组件
+  </li>
+  <li>[2]：选择 [事件] 选项
+  </li>
+  <li>[3]：选择事件类别
+  </li>
+  <li>[4]：选择要处理的事件
+  </li>
+</ul>
+
+<p>此操作生成的 Java 代码如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">jLabelCalculer</span><span style="color:#000000">.addMouseListener(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> java.awt.event.MouseAdapter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> mouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        jLabelCalculerMouseClicked(</span><span style="color:#6a3e3e">evt</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    });</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelCalculerMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// TODO add your handling code here:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 1–5 行：向 <i>jLabelCalculer</i> 组件添加了一个事件处理程序。<b>addMouseListener</b> 方法期望作为参数接收一个实现了以下 <b>MouseListener</b> 接口的类：
+  </li>
+</ul>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001FC0000012674E252F1.png" width="327" height="189" style="display:inline-block; margin:4px;width:8.64cm;height:5.001cm;" class="odt-zoomable" data-zoom-src="images/10000000000001FC0000012674E252F1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p><em>MouseListener</em> 接口由多个类实现，其中包括 <em>MouseAdapter</em> 类。该类实现了 MouseListener 接口的五个方法，但这些方法本身并不执行任何操作。因此，您必须继承该类，以实现您所需的方法。上文的代码即实现了这一点，具体如下所示：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">jLabelCalculer</span><span style="color:#000000">.addMouseListener(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> java.awt.event.MouseAdapter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> mouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        jLabelCalculerMouseClicked(</span><span style="color:#6a3e3e">evt</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">});</span></span>
+</code></pre></div>
+
+<p>上述代码使用了课程[<a href="https://stahe.github.io/zh-java-sept-1998/"><u><span style="color: #0563c1">ref1</span></u></a>]第2.5节中描述的匿名类技术。</p>
+<p>在第 1 行中，addMouseListener 方法的参数是一个匿名类，该类是在运行时动态定义的。它是继承自 MouseAdapter 类的子类的实例（第 1 行），其 <em>mouseClicked</em> 方法被重写（第 2–4 行），以便执行特定的操作。</p>
+<p>第 3 行调用的 <em>jLabelCalculerMouseClicked</em> 方法定义如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelCalculerMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// TODO add your handling code here:</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>开发者通过在此方法中编写代码来处理<em>“MouseClicked</em>”事件。</p>
+<p>NetBeans 生成所有事件处理程序的方式均与此类似。开发人员可以忽略 NetBeans 生成的用于将方法与组件事件关联的代码行，只需在上述第 2 行处编写自己的代码即可。以下是一个示例：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelCalculerMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    System.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">out</span><span style="color:#000000">.println(</span><span style="color:#2a00ff">&quot;Mouse Clicked&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>若运行该图形界面并点击 [计算] 按钮，控制台将显示一条消息：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E0000000A3C39FEEDD.png" width="624" height="81" style="display:inline-block; margin:4px;width:16.51cm;height:2.155cm;" class="odt-zoomable" data-zoom-src="images/10000000000004E0000000A3C39FEEDD.png" /></td></tr></table>
+
+<ul>
+  <li>[1]: 双击 [计算] 标签
+  </li>
+  <li>[2]：事件处理程序已执行，并在 NetBeans 控制台中生成 <i>mouseClicked</i> 消息。
+  </li>
+</ul>
+
+<p>组件 [jComboBoxNomsListes, jListNomsVoix, jListResultats] 的声明如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">protected</span><span style="font-weight:bold;color:#000000"> </span><span style="color:#000000">javax.swing.JComboBox </span><span style="color:#0000c0">jComboBoxNomsListes</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> javax.swing.JList </span><span style="color:#0000c0">jListNomsVoix</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> javax.swing.JList </span><span style="color:#0000c0">jListResultats</span><span style="color:#000000">;</span></span></span>
+</code></pre></div>
+
+<p>这些组件是列表，通常配置为类型 T：即组件所显示模型中元素的类型。该类型 T 可以是任何类型。列表组件中显示的值类型为 [String]。默认情况下，使用 [T.toString()] 方法进行显示。为了更好地控制显示内容，此处的类型 T 将设为 String 类型。因此，我们列表的正确声明如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">protected</span><span style="font-weight:bold;color:#000000"> </span><span style="color:#000000">javax.swing.JComboBox&lt;String&gt; </span><span style="color:#0000c0">jComboBoxNomsListes</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> javax.swing.JList&lt;String&gt; </span><span style="color:#0000c0">jListNomsVoix</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> javax.swing.JList&lt;String&gt; </span><span style="color:#0000c0">jListResultats</span><span style="color:#000000">;</span></span></span>
+</code></pre></div>
+
+<p>我们通过修改组件的某个属性来实现这一效果：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001E40000010AD78B4217.png" width="242" height="133" style="display:inline-block; margin:4px;width:6.403cm;height:3.519cm;" class="odt-zoomable" data-zoom-src="images/10000000000001E40000010AD78B4217.png" /></td></tr></table>
+
+<p><a id="refheading318671812363491"></a></p>
+<h3 id="1034">10.3.4. <span style="color: #4f81bd">代码分离</span></h3>
+<p>让我们回到应用程序的结构：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004BE000000FD68310DE1.png" width="607" height="127" style="display:inline-block; margin:4px;width:16.06cm;height:3.348cm;" class="odt-zoomable" data-zoom-src="images/10000000000004BE000000FD68310DE1.png" /></td></tr></table>
+
+<p>[AbstractElectionsSwing] 类必须实现上层的 [ui] 层。该类由 NetBeans 生成的代码目前仅包含窗口管理代码和事件处理程序，但这些处理程序目前尚无具体功能。 上文中，我们可以看到 [AbstractElectionsSwing] 类需要处理与 [business] 层的交互。这种交互将在事件处理程序中进行。为了使代码结构更加清晰，我们决定将其拆分为两个类：</p>
+<ul>
+  <li>[AbstractElectionsSwing]，该类将保留 NetBeans 生成的原始结构，仅进行少量微调。该类本身不会处理任何事件。其事件处理程序将保持为空并声明为抽象方法，这些方法将由一个从 [AbstractElectionsSwing] 派生的类来实现。
+  </li>
+  <li>[ElectionsSwing]，这是一个从 [AbstractElectionsSwing] 派生的类，将实现所有事件处理程序。
+  </li>
+</ul>
+
+<p>这种分离方式并不罕见。例如，在 ASP.NET Web 页面（非 MVC 版本）中也能看到类似的结构。NetBeans 项目的演变过程如下：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000108000000B031B76F2A.png" width="185" height="123" style="display:inline-block; margin:4px;width:4.89cm;height:3.26cm;" class="odt-zoomable" data-zoom-src="images/1000000000000108000000B031B76F2A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>[AbstractElectionsSwing] 类的代码演变如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> AbstractElectionsSwing {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">....</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jMenuItemCalculerActionPerformed(java.awt.event.ActionEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        doCalculer();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelCalculerMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#0000c0">jLabelCalculer</span><span style="color:#000000">.isEnabled()) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            doCalculer();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">....</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// event managers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doSupprimer();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doCalculer();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doQuitter();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doEffacer();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doEnregistrer();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doAjouter();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doInformer();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doMajLabelAjouter();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">abstract</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doMajLabelSupprimer();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 1 行：声明该类为<b>抽象类</b>
+  </li>
+  <li>第 3–5 行：处理菜单选项 [jMenuItemCalculer] 的点击事件。我们可以看到，事件处理被委托给第 19 行的 <i>doCalculer</i> 方法。该方法未实现且被声明为抽象方法，将由派生类 [ElectionsSwing] 来实现；
+  </li>
+  <li>第 9–13 行：处理标签 [jLabelCalculer] 的<i>点击</i>事件。无论 [jLabel] 组件处于活动状态（enabled=true）还是非活动状态（enabled=false），点击操作都会触发事件。此处我们确保其处于活动状态以处理该事件；
+  </li>
+  <li>第 15 行及之后：将事件处理委托给抽象方法的这种技术被应用于所有事件处理程序。
+  </li>
+</ul>
+
+<p>从 [AbstractElectionsSwing] 派生的 [ElectionsSwing] 类，实现了 [AbstractElectionsSwing] 未实现的所有事件处理程序：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> elections.ui.service;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> ElectionsSwing </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> AbstractElectionsSwing {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// event managers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doInformer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doAjouter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doCalculer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doEffacer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doEnregistrer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doQuitter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        System.<span style="font-style:italic">exit</span>(0);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doSupprimer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doMajLabelAjouter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doMajLabelSupprimer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 3 行：[ElectionsSwing] 继承自 [AbstractElectionsSwing]
+  </li>
+  <li>第 7–50 行：图形窗口的事件处理程序
+  </li>
+</ul>
+
+<p>派生类 [ElectionsSwing] 的方法将操作父类 [AbstractElectionsSwing] 的组件。目前，这些组件的访问范围<em>为私有</em>，因此子类 [ElectionsSwing] 无法访问它们：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> JMenuItem </span><span style="color:#0000c0">jMenuItemAPropos</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> JLabel </span><span style="color:#0000c0">jLabelAjouter</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">;</span></span></span>
+</code></pre></div>
+
+<p>为解决此问题，我们将确保 GUI 组件的作用域为 [<strong>protected</strong>]：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000057B0000019C18CB4098.png" width="680" height="200" style="display:inline-block; margin:4px;width:17.999cm;height:5.286cm;" class="odt-zoomable" data-zoom-src="images/100000000000057B0000019C18CB4098.png" /></td></tr></table>
+
+<ul>
+  <li>在 [3] 中设置 [protected] 属性；
+  </li>
+</ul>
+<p><a id="refheading318691812363491"></a></p>
+<h3 id="1035-ielectionsui">10.3.5. <span style="color: #4f81bd">实现 [IElectionsUI] 接口</span></h3>
+<p>让我们回到应用程序的结构：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004AF000000FEFC7607C9.png" width="600" height="127" style="display:inline-block; margin:4px;width:15.863cm;height:3.36cm;" class="odt-zoomable" data-zoom-src="images/10000000000004AF000000FEFC7607C9.png" /></td></tr></table>
+
+<p>在上文中，[ui] 层必须向 [main] 对象展示 [IElectionsUI] 接口：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> elections.ui.service;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">interface</span><span style="color:#000000"> IElectionsUI {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#3f5fbf">/**</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">     </span><span style="color:#3f5fbf">*</span><span style="color:#000000"> </span><span style="color:#3f5fbf">lance</span><span style="color:#000000"> </span><span style="color:#3f5fbf">le</span><span style="color:#000000"> </span><span style="color:#3f5fbf">dialogue</span><span style="color:#000000"> </span><span style="color:#3f5fbf">avec</span><span style="color:#000000"> </span><span style="color:#3f5fbf">l&#x27;utilisateur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">     </span><span style="color:#3f5fbf">*/</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> run();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>该接口在 [elections-console-metier-dao-jdbc] 项目中定义，并在<a href="#refheading318391812363491"><u><span style="color: #0563c1">第 9.4 节</span></u></a>中进行了说明。由于该项目是 [swing] 项目的依赖项，因此该接口已被识别。</p>
+<p>由于 [AbstractElectionsSwing] 类已成为抽象类，Spring 无法再对其进行实例化。现在必须对 [ElectionsSwing] 类进行实例化。 [ElectionsSwing] 类必须实现 [IElectionsUI] 接口。因此，其代码更改如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-csharp">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> ElectionsSwing </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> AbstractElectionsSwing </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> IElectionsUI {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// interface [ElectionsUI] run method</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> run() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 1 行：[ElectionsSwing] 类实现了 [IElectionsUI] 接口
+  </li>
+  <li>第 4–6 行：该接口的 [run] 方法
+  </li>
+</ul>
+
+<p><em>run</em> 方法应该做什么？显示 GUI 窗口。我们该如何实现？我们可以参考 [AbstractElectionsSwing] 类中由 NetBeans 生成的 [main] 方法，它正好实现了我们想要的功能：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String </span><span style="color:#6a3e3e">args</span><span style="color:#000000">[]) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#3f7f5f">/* Set the Nimbus look and feel */</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">//&lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot; Look and feel setting code (optional) &quot;&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#3f7f5f">/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">     */</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (javax.swing.UIManager.LookAndFeelInfo </span><span style="color:#6a3e3e">info</span><span style="color:#000000"> : javax.swing.UIManager.</span><span style="font-style:italic;color:#000000">getInstalledLookAndFeels</span><span style="color:#000000">()) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#2a00ff">&quot;Nimbus&quot;</span><span style="color:#000000">.equals(</span><span style="color:#6a3e3e">info</span><span style="color:#000000">.getName())) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          javax.swing.UIManager.</span><span style="font-style:italic;color:#000000">setLookAndFeel</span><span style="color:#000000">(</span><span style="color:#6a3e3e">info</span><span style="color:#000000">.getClassName());</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">          </span><span style="font-weight:bold;color:#7f0055">break</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (ClassNotFoundException </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      java.util.logging.Logger.</span><span style="font-style:italic;color:#000000">getLogger</span><span style="color:#000000">(NewJFrame.</span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000">.getName()).log(java.util.logging.Level.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">SEVERE</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">, </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (InstantiationException </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      java.util.logging.Logger.</span><span style="font-style:italic;color:#000000">getLogger</span><span style="color:#000000">(NewJFrame.</span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000">.getName()).log(java.util.logging.Level.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">SEVERE</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">, </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (IllegalAccessException </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      java.util.logging.Logger.</span><span style="font-style:italic;color:#000000">getLogger</span><span style="color:#000000">(NewJFrame.</span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000">.getName()).log(java.util.logging.Level.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">SEVERE</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">, </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (javax.swing.UnsupportedLookAndFeelException </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      java.util.logging.Logger.</span><span style="font-style:italic;color:#000000">getLogger</span><span style="color:#000000">(NewJFrame.</span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000">.getName()).log(java.util.logging.Level.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">SEVERE</span><span style="color:#000000">, </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">, </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">//&lt;/editor-fold&gt;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#3f7f5f">/* Create and display the form */</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    java.awt.EventQueue.</span><span style="font-style:italic;color:#000000">invokeLater</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Runnable() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> run() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> NewJFrame().setVisible(</span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    });</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  }</span></span>
+</code></pre></div>
+
+<p>第 28 行使用的 [<span style="color: #000000">AbstractElectionsSwing</span>] 构造函数如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="color:#000000">AbstractElectionsSwing</span><span style="color:#000000">() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    initComponents();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 2 行：[initComponents] 方法是由 GUI 生成器生成的私有方法。其代码不可更改。
+  </li>
+</ul>
+
+<p>[ElectionsSwing] 类的 [run] 方法可以如下所示：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> run() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// on affiche l&#x27;interface graphique</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    SwingUtilities.</span><span style="font-style:italic;color:#000000">invokeLater</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Runnable() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> run() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        init();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        setVisible(</span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    });</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 6 行：使用 [init] 方法初始化 GUI。这里，我们希望调用父类 [<span style="color: #000000">AbstractElectionsSwing</span>] 的 [initComponents] 方法，但该方法是私有的。因此，我们在父类 [<span style="color: #000000">AbstractElectionsSwing</span>] 中添加了以下 [init] 方法：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> init(){</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    initComponents();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>（待续）
+    <ul>
+      <li>由于位于 [<span style="color: #000000">AbstractElectionsSwing</span>] 类中，[init] 方法可以访问同一类的私有 [initComponents] 方法；
+      </li>
+      <li>由于它带有 [protected] 修饰符，因此可在子类 [ElectionsSwing] 中访问；
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<ul>
+  <li>第 7 行：将 GUI 显示出来；
+  </li>
+</ul>
+
+<p><strong>注意</strong>：一旦在 [ElectionsSwing] 类中编写了 [run] 方法，抽象类 [AbstractElectionsSwing] 的 [main] 方法即可被移除。</p>
+<p><a id="refheading318711812363491"></a></p>
+<h3 id="1036">10.3.6. <span style="color: #4f81bd">可执行类</span></h3>
+<p>让我们回到应用程序的结构：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004B10000010765176D5C.png" width="601" height="131" style="display:inline-block; margin:4px;width:15.889cm;height:3.478cm;" class="odt-zoomable" data-zoom-src="images/10000000000004B10000010765176D5C.png" /></td></tr></table>
+
+<p>我们希望 Spring 能像<em>在控制台</em>应用程序中实现时那样，实例化 [ui] 层。为此，实现类 [ElectionsSwing] 必须持有对 [business] 层的引用：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content">@Component</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> ElectionsSwing </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> AbstractElectionsSwing </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> IElectionsUI{</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// reference on the [business] layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Autowired</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IElectionsMetier </span><span style="color:#0000c0">metier</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 1 行：[<span style="color: #000000">ElectionsSwing</span>] 类是 Spring 组件；
+  </li>
+  <li>第 5–6 行：Spring 将一个引用注入到 [业务] 层；
+  </li>
+</ul>
+
+<p>通过执行以下 [BootElectionsSwing] 类来启动图形用户界面：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000FE000000941C25FA12.png" width="178" height="104" style="display:inline-block; margin:4px;width:4.701cm;height:2.739cm;" class="odt-zoomable" data-zoom-src="images/10000000000000FE000000941C25FA12.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> elections.ui.boot;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> elections.ui.service.IElectionsUI;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> BootElectionsSwing </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> AbstractBootElections {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> main(String[] </span><span style="color:#6a3e3e">arguments</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> BootElectionsSwing().run();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> IElectionsUI getUI() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#0000c0">ctx</span><span style="color:#000000">.getBean(</span><span style="color:#2a00ff">&quot;electionsSwing&quot;</span><span style="color:#000000">, IElectionsUI.</span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>我们在<a href="#refheading318411812363491"><u><span style="color: #0563c1">第9.5</span></u></a>节讨论[AbstractBootElections]和[BootElectionsConsole]类代码时，曾解释过类似的代码。在第12行，我们获取名为[<span style="color: #2a00ff">electionsSwing</span>]的Bean，它对应于[ElectionsSwing]类的标准Spring名称。</p>
+<p><a id="refheading318751812363491"></a></p>
+<h3 id="1037">10.3.7. <span style="color: #4f81bd">图形用户界面的初始化</span></h3>
+<p>当图形用户界面显示时，其中部分组件已初始化：</p>
+<p><img src="images/10000000000002520000021987E754B8.png" width="416" height="376" style="width:11cm;height:9.945cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002520000021987E754B8.png" /></p>
+<p>如上所示： </p>
+<ul>
+  <li>下拉列表中已填充了各候选名单的名称；
+  </li>
+  <li>显示了待填补的席位数和选举门槛；
+  </li>
+  <li>部分链接已被禁用；
+  </li>
+  <li>窗口底部显示了一条成功提示；
+  </li>
+</ul>
+
+<p>这些初始化何时进行？它们只能在 [ElectionsSwing] 类的 [electionsMetier] 字段初始化完成后进行。这是因为列表名称将从 [metier] 层获取。Spring 将按以下顺序初始化该字段：</p>
+<ul>
+  <li>使用 [ElectionsSwing] 类的无参构造函数；
+  </li>
+  <li>注入依赖项，本例中即注入对 [business] 层的引用；
+  </li>
+  <li>执行 [ElectionsSwing] 类的 [run] 方法：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> run() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on affiche l&#x27;interface graphique</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        SwingUtilities.</span><span style="font-style:italic;color:#000000">invokeLater</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> Runnable() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> run() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">                init();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                setVisible(</span><span style="font-weight:bold;color:#7f0055">true</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        });</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>在第 12 行，我们指定将调用父类的 [init] 方法，该方法将绘制 GUI 组件。我们将在 [ElectionsSwing] 类中本地重写此方法。这次，我们将在该方法内使用数据初始化窗口组件（下拉列表框、标签）：
+  </li>
+</ul>
+
+<p>本地 [init] 方法的骨架代码如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> ElectionsSwing </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> AbstractElectionsSwing </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> IElectionsUI {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#3f7f5f">...</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// reference on the [business] layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Autowired</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IElectionsMetier </span><span style="color:#0000c0">metier</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// initializations</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> init() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// generation of components by the parent class</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">super</span><span style="color:#000000">.init();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// lists are requested from the [metier] layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// associate list names with the jComboBoxNomsListes combo</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// and election parameters</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// we initialize the labels linked to these two pieces of information</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// message of success</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// initialization status of certain components form</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>请注意，第 11 行调用了父类的 [init] 方法。</p>
+<p><a id="refheading318771812363491"></a></p>
+<h3 id="1038-utilities">10.3.8. <span style="color: #4f81bd">[Utilities] 类</span></h3>
+<p>[Utilities] 类中汇总了若干静态辅助方法：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010500000094F3639E55.png" width="183" height="104" style="display:inline-block; margin:4px;width:4.83cm;height:2.739cm;" class="odt-zoomable" data-zoom-src="images/100000000000010500000094F3639E55.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+
+<p>[Utilities] 类的定义如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> istia.st.elections.ui;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> javax.swing.JLabel;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">import</span><span style="color:#000000"> javax.swing.JMenuItem;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">//utility class</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> Utilitaires {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// manage label array status</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> setEnabled(JLabel[] labels, </span><span style="font-weight:bold;color:#7f0055">boolean</span><span style="color:#000000"> value) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (</span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> i = 0; i &lt; labels.</span><span style="color:#0000c0">length</span><span style="color:#000000">; i++) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            labels[i].setEnabled(value);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// manage the status of a table of menu options</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">static</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> setEnabled(JMenuItem[] menuItems, </span><span style="font-weight:bold;color:#7f0055">boolean</span><span style="color:#000000"> value) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 9 行：<i>setEnabled</i> 方法用于设置数组中定义的 <i>JLabel</i> 组件的状态。<i>JLabel</i> 组件的 <i>setEnabled</i> 方法允许您启用或禁用该 <i>JLabel</i>。
+  </li>
+</ul>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：参照第 9 行 <em><code>setEnabled</code></em> 方法的示例<em>，</em>编写第 16 行 <em><code>setEnabled</code></em> 方法，使其对 <code>*JMenuItem</code>* 组件执行相同操作。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+
+<p><a id="refheading318791812363491"></a></p>
+<h3 id="1039-electionsswing">10.3.9. <span style="color: #4f81bd">[ElectionsSwing] 类的代码</span></h3>
+<p>让我们回顾一下 [ElectionsSwing] 类的总体结构：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">package</span><span style="color:#000000"> istia.st.elections.ui;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">class</span><span style="color:#000000"> ElectionsSwing </span><span style="font-weight:bold;color:#7f0055">extends</span><span style="color:#000000"> AbstractElectionsSwing </span><span style="font-weight:bold;color:#7f0055">implements</span><span style="color:#000000"> IElectionsUI {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// reference on the [business] layer</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Autowired</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> IElectionsMetier </span><span style="color:#0000c0">metier</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// initializations</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">public</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> init() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#3f7f5f">...</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// event managers</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doInformer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doAjouter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doCalculer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doEffacer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doEnregistrer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doQuitter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        System.<span style="font-style:italic">exit</span>(0);</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doSupprimer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doMajLabelAjouter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doMajLabelSupprimer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>我们将逐一探讨该类的各个方法。</p>
+<p><a id="refheading318811812363491"></a></p>
+<h4 id="10391-init">10.3.9.1. <span style="color: #4f81bd">[init] 方法</span></h4>
+<p>让我们回到图形界面：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003AE00000355C8476B5D.png" width="471" height="427" style="display:inline-block; margin:4px;width:12.462cm;height:11.285cm;" class="odt-zoomable" data-zoom-src="images/10000000000003AE00000355C8476B5D.png" /></td></tr></table>
+
+<p>[init] 方法的目标如下：</p>
+<ul>
+  <li>将列表的 ID 和名称以 [ID - 名称] 的格式填充到下拉列表框 [4] 中
+  </li>
+  <li>在 [15] 处显示成功提示
+  </li>
+  <li>初始化标签 [2] 和 [3]
+  </li>
+  <li>禁用某些链接
+  </li>
+</ul>
+
+<p>[init] 方法的骨架代码如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">@Override</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> init() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// génération des composants par la classe parent</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">super</span><span style="color:#000000">.init();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// initialisations locales</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">modèleNomsVoix</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> DefaultListModel&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jListNomsVoix</span><span style="color:#000000">.setModel(</span><span style="color:#0000c0">modèleNomsVoix</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">modèleRésultats</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> DefaultListModel&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jListResultats</span><span style="color:#000000">.setModel(</span><span style="color:#0000c0">modèleRésultats</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        String </span><span style="color:#6a3e3e">info</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// on demande les listes à la couche [métier]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#0000c0">listes</span><span style="color:#000000"> = ...</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// on associe les noms des listes au combo jComboBoxNomsListes</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            // ainsi que les paramètres de l&#x27;election</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">int</span><span style="color:#000000"> </span><span style="color:#6a3e3e">nbSiegesAPourvoir</span><span style="color:#000000"> = ...</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">double</span><span style="color:#000000"> </span><span style="color:#6a3e3e">seuilElectoral</span><span style="color:#000000"> = ...</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// on initialise les labels liés à ces deux informations</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// message de succès</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">info</span><span style="color:#000000"> = </span><span style="color:#2a00ff">&quot;Source de données lue avec succès&quot;</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (ElectionsException </span><span style="color:#6a3e3e">ex1</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            // on note l&#x27;error</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">info</span><span style="color:#000000"> = getInfoForException(</span><span style="color:#2a00ff">&quot;Les erreurs suivantes se sont produites :&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">ex1</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (RuntimeException </span><span style="color:#6a3e3e">ex2</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            // on note l&#x27;error</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">info</span><span style="color:#000000"> = getInfoForException(</span><span style="color:#2a00ff">&quot;Les erreurs suivantes se sont produites :&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">ex2</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        // on affiche l&#x27;info</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextPaneMessages</span><span style="color:#000000">.setText(</span><span style="color:#6a3e3e">info</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#0000c0">jTextPaneMessages</span><span style="color:#000000">.setCaretPosition(0);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// état formulaire</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Utilitaires.</span><span style="font-style:italic;color:#000000">setEnabled</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> JLabel[] { </span><span style="color:#0000c0">jLabelAjouter</span><span style="color:#000000">, </span><span style="color:#0000c0">jLabelCalculer</span><span style="color:#000000">, </span><span style="color:#0000c0">jLabelEnregistrer</span><span style="color:#000000">, </span><span style="color:#0000c0">jLabelSupprimer</span><span style="color:#000000"> }, </span><span style="font-weight:bold;color:#7f0055">false</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        Utilitaires.<span style="font-style:italic">setEnabled</span>(</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">                </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> JMenuItem[] { </span><span style="color:#0000c0">jMenuItemAjouter</span><span style="color:#000000">, </span><span style="color:#0000c0">jMenuItemCalculer</span><span style="color:#000000">, </span><span style="color:#0000c0">jMenuItemEnregistrer</span><span style="color:#000000">, </span><span style="color:#0000c0">jMenuItemSupprimer</span><span style="color:#000000"> }, </span><span style="font-weight:bold;color:#7f0055">false</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// centrer la fenêtre</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Dimension </span><span style="color:#6a3e3e">screenSize</span><span style="color:#000000"> = Toolkit.</span><span style="font-style:italic;color:#000000">getDefaultToolkit</span><span style="color:#000000">().getScreenSize();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Dimension </span><span style="color:#6a3e3e">frameSize</span><span style="color:#000000"> = getSize();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">frameSize</span><span style="color:#000000">.</span><span style="color:#0000c0">height</span><span style="color:#000000"> &gt; </span><span style="color:#6a3e3e">screenSize</span><span style="color:#000000">.</span><span style="color:#0000c0">height</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">frameSize</span><span style="color:#000000">.</span><span style="color:#0000c0">height</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">screenSize</span><span style="color:#000000">.</span><span style="color:#0000c0">height</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">frameSize</span><span style="color:#000000">.</span><span style="color:#0000c0">width</span><span style="color:#000000"> &gt; </span><span style="color:#6a3e3e">screenSize</span><span style="color:#000000">.</span><span style="color:#0000c0">width</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">frameSize</span><span style="color:#000000">.</span><span style="color:#0000c0">width</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">screenSize</span><span style="color:#000000">.</span><span style="color:#0000c0">width</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        setLocation((</span><span style="color:#6a3e3e">screenSize</span><span style="color:#000000">.</span><span style="color:#0000c0">width</span><span style="color:#000000"> - </span><span style="color:#6a3e3e">frameSize</span><span style="color:#000000">.</span><span style="color:#0000c0">width</span><span style="color:#000000">) / 2, (</span><span style="color:#6a3e3e">screenSize</span><span style="color:#000000">.</span><span style="color:#0000c0">height</span><span style="color:#000000"> - </span><span style="color:#6a3e3e">frameSize</span><span style="color:#000000">.</span><span style="color:#0000c0">height</span><span style="color:#000000">) / 2);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String getInfoForException(String </span><span style="color:#6a3e3e">message</span><span style="color:#000000">, ElectionsException </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on affiche le message</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        StringBuffer </span><span style="color:#6a3e3e">info</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> StringBuffer(String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;%s -------------\n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">message</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="color:#6a3e3e">info</span><span style="color:#000000">.append(String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;Code erreur : %d\n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">.getCode()));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on affiche les erreurs</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">for</span><span style="color:#000000"> (String </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000"> : </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">.getErreurs()) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">info</span><span style="color:#000000">.append(String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;-- %s\n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">erreur</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">info</span><span style="color:#000000">.toString();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> String getInfoForException(String </span><span style="color:#6a3e3e">message</span><span style="color:#000000">, RuntimeException </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on affiche le message</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        StringBuffer </span><span style="color:#6a3e3e">info</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> StringBuffer(String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;%s -------------\n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">message</span><span style="color:#000000">));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on affiche la pile des exceptions</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Throwable </span><span style="color:#6a3e3e">cause</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">while</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">cause</span><span style="color:#000000"> != </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">info</span><span style="color:#000000">.append(String.</span><span style="font-style:italic;color:#000000">format</span><span style="color:#000000">(</span><span style="color:#2a00ff">&quot;-- %s\n&quot;</span><span style="color:#000000">, </span><span style="color:#6a3e3e">cause</span><span style="color:#000000">.getMessage()));</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="color:#6a3e3e">cause</span><span style="color:#000000"> = </span><span style="color:#6a3e3e">cause</span><span style="color:#000000">.getCause();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000"> </span><span style="color:#6a3e3e">info</span><span style="color:#000000">.toString();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+</code></pre></div>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：完成 [init] 方法的代码。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+<p>课程阅读：<em>JTextField</em> 和 <em>JLabel</em> 组件</p>
+<p><strong>注</strong>：</p>
+<p><em>JList</em> 组件用于显示模型中的数据。默认情况下，该模型的类型为 <em>DefaultListModel</em>（第 2 行和第 3 行）。<em>DefaultListModel</em> 对象的行为与 <em>ArrayList</em> 有些相似：</p>
+<ul>
+  <li>要将对象 <i>o</i> 添加到模型中：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000c0">[DefaultListModel]</span><span style="color:#000000">.addElement(</span><span style="color:#2a00ff">Object o</span><span style="color:#000000">);</span></span></span>
+</code></pre></div>
+
+<p>在此应用程序中，对象 <em>o</em> 始终为 <em>String</em> 类型。</p>
+<ul>
+  <li>要从模型中删除元素 i：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000c0">[DefaultListModel]</span><span style="color:#000000">.remove(</span><span style="color:#2a00ff">int i</span><span style="color:#000000">);</span></span></span>
+</code></pre></div>
+
+<ul>
+  <li>从模型中获取第 i 个元素：
+  </li>
+</ul>
+
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000c0">[DefaultListModel]</span><span style="color:#000000">.elementAt(</span><span style="color:#2a00ff">int i</span><span style="color:#000000">);</span></span></span>
+</code></pre></div>
+
+<p>要向 [<span style="color: #0000c0">jComboBoxNomsListes</span>] 下拉列表框添加项目，请使用 [addItem] 方法：</p>
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#0000c0">jComboBoxNomsListes</span><span style="color:#000000">.addItem(chaîne de caractères)</span></span></span>
+</code></pre></div>
+
+<p><em>JTextPane</em> 组件提供 <em>getText</em>() 和 <em>setText</em>() 方法，用于读取/写入显示的文本。</p>
+<p><a id="refheading318831812363491"></a></p>
+<h4 id="10392-add">10.3.9.2. <span style="color: #4f81bd"><span style="color: #4f81bd">管理 [Add] 链接的状态</span></span></h4>
+<p>[添加]按钮[6]仅在[5]投票字段不为空时才处于活动状态。在[AbstractElectionsSwing]类中，用于跟踪[5]字段光标移动的处理程序如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jTextFieldVoixListeCaretUpdate(javax.swing.event.CaretEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#3f7f5f">doMajLabelAjouter()</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>第 2 行调用了 [ElectionsSwing] 类的 [doMajLabelAjouter] 方法。</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doMajLabelAjouter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on fixe l&#x27;état du label [jLabelAjouter]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on fixe l&#x27;état du menu [jMenuItemAjouter]</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：完成 [doMajLabelAjouter] 方法的代码。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+
+<p><a id="refheading318851812363491"></a></p>
+<h4 id="10393">10.3.9.3. <span style="color: #4f81bd">为每个列表分配票数</span></h4>
+<p>对于来自 (4) 的每个候选列表，请按以下步骤操作：</p>
+<ul>
+  <li>从（4）中选择一个名单
+  </li>
+  <li>在 (5) 中输入票数
+  </li>
+  <li>点击 [添加] 链接进行确认
+  </li>
+</ul>
+
+<p>输入错误将按以下示例所示进行标记：</p>
+<p><img src="images/10000000000001F50000007952FDAE3C.png" width="351" height="85" style="width:9.28cm;height:2.24cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F50000007952FDAE3C.png" /></p>
+<p>如果投票数正确，列表将添加到组件 (8) 中，投票数将被清空，且 [添加] 链接将失效：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000010700000050C8319E8A.png" width="184" height="56" style="display:inline-block; margin:4px;width:4.87cm;height:1.482cm;" class="odt-zoomable" data-zoom-src="images/100000000000010700000050C8319E8A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001A700000086A5A768BE.png" width="296" height="94" style="display:inline-block; margin:4px;width:7.83cm;height:2.48cm;" class="odt-zoomable" data-zoom-src="images/10000000000001A700000086A5A768BE.png" /></td></tr></table>
+
+<p>在 [AbstractElectionsSwing] 类中，处理 [添加] 链接点击事件的处理程序如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelAjouterMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#0000c0">jLabel</span><span style="color:#000000">Ajouter.isEnabled()) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            do<span style="color:#000000">Ajouter</span>();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>第 3 行调用了 [ElectionsSwing] 类的 [doAjouter] 方法：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// modèles des listes JList</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> DefaultListModel&lt;String&gt; </span><span style="color:#0000c0">modèleNomsVoix</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> DefaultListModel&lt;String&gt; </span><span style="color:#0000c0">modèleRésultats</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// les listes en compétition</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> ListeElectorale[] </span><span style="color:#0000c0">listes</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">  // listes saisies par l&#x27;user</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> List&lt;ListeElectorale&gt; </span><span style="color:#0000c0">listesSaisies</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> ListeElectorale[] </span><span style="color:#0000c0">tListesSaisies</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doAjouter() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// le nombre de voix est-il correct ?</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// si erreur, alors on la signale</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000"> (</span><span style="color:#6a3e3e">erreur</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      JOptionPane.</span><span style="font-style:italic;color:#000000">showMessageDialog</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">null</span><span style="color:#000000">, </span><span style="color:#2a00ff">&quot;Nombre de voix incorrect&quot;</span><span style="color:#000000">, </span><span style="color:#2a00ff">&quot;Elections : erreur&quot;</span><span style="color:#000000">,</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">              JOptionPane.</span><span style="font-weight:bold;font-style:italic;color:#0000c0">INFORMATION_MESSAGE</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="color:#0000c0">jTextFieldVoixListe</span><span style="color:#000000">.requestFocus();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      // retour à l&#x27;graphic interface</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    // pas d&#x27;error - save the list</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">listesSaisies</span><span style="color:#000000">.add(...);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">modèleNomsVoix</span><span style="color:#000000">.addElement(...);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// on nettoie le nombre de voix</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">jTextFieldVoixListe</span><span style="color:#000000">.setText(</span><span style="color:#2a00ff">&quot;&quot;</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// état formulaire (menus, labels)</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<ul>
+  <li>第 25 行：每次用户向列表中添加语音并确认选择时，该列表都会存储在第 9 行的 [<span style="color: #0000c0">listesSaisies</span>] 字段中。该列表以 [id, version, name, voice] 的形式保存在此处。前三个信息来自第 6 行数组中最初存储的列表。下拉列表的 [getSelectedIndex] 方法返回所选列表的索引；
+  </li>
+</ul>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：完成 [doAjouter] 方法的代码。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+
+<p><a id="refheading318871812363491"></a></p>
+<h4 id="10394-delete">10.3.9.4. <span style="color: #4f81bd">管理 [Delete] 链接的状态</span></h4>
+<p>只有在 [8] 中选中了某项时，[Delete] 链接 [9] 才处于活动状态。</p>
+<p>在 [AbstractElectionsSwing] 类中，响应列表 [8] 中项目点击事件的处理程序如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jListNomsVoixValueChanged(javax.swing.event.ListSelectionEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    doMajLabelSupprimer();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>第 2 行调用了 [ElectionsSwing] 类的 [doMajLabelSupprimer] 方法。</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doMajLabelSupprimer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            // on allume le label [jLabelSupprimer] et l&#x27;corresponding menu option</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：完成 [doMajLabelSupprimer] 方法的代码。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+
+<p><a id="refheading318891812363491"></a></p>
+<h4 id="10395">10.3.9.5. <span style="color: #4f81bd">删除候选人列表</span></h4>
+<p>[删除]链接[9]允许您删除在(8)中选中的(姓名,票数)对。删除完成后，[删除]链接将被禁用。只有当在(8)中选中新的列表时，该链接才会再次启用。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000A4000000818CF2F26E.png" width="131" height="103" style="display:inline-block; margin:4px;width:3.47cm;height:2.729cm;" class="odt-zoomable" data-zoom-src="images/10000000000000A4000000818CF2F26E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000A60000007D7A7AA404.png" width="133" height="100" style="display:inline-block; margin:4px;width:3.51cm;height:2.642cm;" class="odt-zoomable" data-zoom-src="images/10000000000000A60000007D7A7AA404.png" /></td></tr></table>
+
+<p>在 [AbstractElectionsSwing] 类中，响应 [删除] 链接点击的处理程序如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelSupprimerMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000">(</span><span style="color:#0000c0">jLabel</span><span style="color:#000000">Supprimer.isEnabled()){</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      doSupprimer();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>第 3 行调用了 [ElectionsSwing] 类的 [doSupprimer] 方法。</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
+<span class="odt-code-line"><span class="odt-code-line-content">@Override</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doSupprimer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// suppression de la liste sélectionnée, du modèle modèleNomsVoix et des listes saisies</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        // maj de l&#x27;status of labels and form menu options</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Utilitaires.</span><span style="font-style:italic;color:#000000">setEnabled</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">...</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>待完成工作</strong>：编写 [doSupprimer] 方法的代码。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+
+<p><a id="refheading318911812363491"></a></p>
+<h4 id="10396-calculate">10.3.9.6. <span style="color: #4f81bd">管理 [Calculate] 链接的状态</span></h4>
+<p>只有当 [8] 中至少有一个项目时，[Calculate] 链接 [10] 才处于活动状态。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：在之前编写的 [doAdd] 和 [doDelete] 方法中添加必要的代码来处理此链接。相应的菜单选项也将一并处理。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+<p><strong>注意</strong>：<em>DefaultListModel</em> 中的项目数量可通过 <em>size</em>() 方法获取。</p>
+<p><a id="refheading318931812363491"></a></p>
+<h4 id="10397">10.3.9.7. <span style="color: #4f81bd">计算座位数</span></h4>
+<p>通过[计算]链接[10]，您可以开始座位计算，并在(14)处显示结果。如果计算失败（所有列表均已被排除），则会在[15]处显示错误信息。无论结果如何，计算完成后，[计算]链接[10]都会被禁用。</p>
+<p>在 [AbstractElectionsSwing] 类中，响应 [计算] 链接点击的处理程序如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelCalculerMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000">(</span><span style="color:#0000c0">jLabelCalculer</span><span style="color:#000000">.isEnabled()){</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      do<span style="color:#000000">Calculer</span>();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>第 3 行调用了 [ElectionsSwing] 类的 [doCalculer] 方法。</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">  <span style="color:#000000">// listes saisies par l&#x27;utilisateur</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">final</span><span style="color:#000000"> List&lt;ListeElectorale&gt; </span><span style="color:#0000c0">listesSaisies</span><span style="color:#000000"> = </span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ArrayList&lt;&gt;();</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> ListeElectorale[] </span><span style="color:#0000c0">tListesSaisies</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"> </span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doCalculer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#0000c0">tListesSaisies</span><span style="color:#000000"> = </span><span style="color:#0000c0">listesSaisies</span><span style="color:#000000">.toArray(</span><span style="font-weight:bold;color:#7f0055">new</span><span style="color:#000000"> ListeElectorale[0]);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// calcul des sièges</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (ElectionsException </span><span style="color:#6a3e3e">ex</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      <span style="color:#000000">// on affiche l&#x27;exception</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">      </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// affichage des résultats</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    <span style="color:#000000">// maj état formulaire</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    Utilitaires.</span><span style="font-style:italic;color:#000000">setEnabled</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">...</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：完成 [doCalculer] 方法的代码。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+
+<p><a id="refheading318951812363491"></a></p>
+<h4 id="10398">10.3.9.8. <span style="color: #4f81bd">将结果保存到数据源</span></h4>
+<p>[保存] 链接 (12) 允许您将座位计算结果保存到数据源。保存成功后，[保存] 链接将被禁用。如果保存失败，[15] 处将显示一条错误消息。无论哪种情况，[保存] 链接随后都会被禁用。</p>
+<p>在 [AbstractElectionsSwing] 类中，处理 [Save] 标签点击事件的处理程序如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelEnregistrerMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000">(</span><span style="color:#0000c0">jLabelEnregistrer</span><span style="color:#000000">.isEnabled()){</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      do<span style="color:#000000">Enregistrer</span>();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>第 3 行调用了 [ElectionsSwing] 类的 [doEnregistrer] 方法：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content">@Override</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doEnregistrer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on demande l&#x27;enregistrement à la couche métier</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        </span><span style="font-weight:bold;color:#7f0055">try</span><span style="color:#000000"> {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        } </span><span style="font-weight:bold;color:#7f0055">catch</span><span style="color:#000000"> (ElectionsException ex) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// on affiche l&#x27;exception</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            ...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">            <span style="color:#000000">// retour à l&#x27;interface graphique</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">            </span><span style="font-weight:bold;color:#7f0055">return</span><span style="color:#000000">;</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// maj du formulaire</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Utilitaires.</span><span style="font-style:italic;color:#000000">setEnabled</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">...</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">...</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：完成 [doEnregistrer] 方法的代码。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+
+<p><a id="refheading318971812363491"></a></p>
+<h4 id="10399">10.3.9.9. <span style="color: #4f81bd"><span style="color: #4f81bd">清除结果</span></span></h4>
+<p>[清除]链接（11）可清除显示在（14）中的结果。</p>
+<p>在 [AbstractElectionsSwing] 类中，处理 [Clear] 标签点击事件的处理程序如下：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">  </span><span style="font-weight:bold;color:#7f0055">private</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> jLabelEffacerMouseClicked(java.awt.event.MouseEvent </span><span style="color:#6a3e3e">evt</span><span style="color:#000000">) {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">if</span><span style="color:#000000">(</span><span style="color:#0000c0">jLabelEffacer</span><span style="color:#000000">.isEnabled()){</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">      do<span style="color:#000000">Effacer</span>();</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">    }</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<p>第 3 行调用了 [ElectionsSwing] 类的 [doEffacer] 方法：</p>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="color:#646464">@Override</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">    </span><span style="font-weight:bold;color:#7f0055">protected</span><span style="color:#000000"> </span><span style="font-weight:bold;color:#7f0055">void</span><span style="color:#000000"> doEffacer() {</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// on vide la liste des résultats</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        ....</span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">        <span style="color:#000000">// maj du formulaire</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content"><span style="color:#000000">        Utilitaires.</span><span style="font-style:italic;color:#000000">setEnabled</span><span style="color:#000000">(</span><span style="font-weight:bold;color:#7f0055">...</span><span style="color:#000000">);</span></span></span>
+<span class="odt-code-line"><span class="odt-code-line-content">}</span></span>
+</code></pre></div>
+
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：完成 [doEffacer] 方法的代码。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+<p><strong>注意</strong>：<em>DefaultListModel</em> 类有一个 <em>clear</em>() 方法，用于移除所有元素。</p>
+<p><a id="refheading319011812363491"></a></p>
+<h3 id="10310">10.3.10. <span style="color: #4f81bd">改进</span></h3>
+<p>之前的图形界面可以通过多种方式进行改进：用户可能会忘记为组合框中所有列表输入投票，也可能不小心对同一个列表重复投票。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="top" />
+<p><strong>任务</strong>：改进算法，确保上述两种情况均不会发生。一个简单的解决方案是维护一个已输入列表的字典，其中键为下拉列表框中的项目。我们还将确保只有在所有列表均已输入后，[计算] 按钮才会启用。</p>
+<hr style="border:0; border-top:0.99pt solid #000000; margin:0.75em 0;" data-odt-border="bottom" />
+<p><strong>参见课程</strong>[<a href="https://stahe.github.io/zh-java-sept-1998/"><u><span style="color: #0563c1">ref1</span></u></a>]：第3.8节中的HashTable类。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+相同方式共享 3.0 未本地化</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

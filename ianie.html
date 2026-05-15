@@ -1,0 +1,1169 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Java语言与Spring生态系统入门">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-java-spring-dec-2015/ianie.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="uoeeni.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>1. 简介 - Java语言与Spring生态系统入门</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Java语言与Spring生态系统入门";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Java语言与Spring生态系统入门" class="md-header__button md-logo" aria-label="Java语言与Spring生态系统入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Java语言与Spring生态系统入门
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. 简介
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-java-spring-dec-2015" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Java语言与Spring生态系统入门" class="md-nav__button md-logo" aria-label="Java语言与Spring生态系统入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Java语言与Spring生态系统入门
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-java-spring-dec-2015" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ianie.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. 背景
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. 目录
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. 使用的工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. 支持
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uoeeni.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. [作业]：问题
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="td-ei.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. [TD]: 类
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdenengiaou.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. [TD]：分层架构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehengspring-uangiauen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. [课程]：Spring 框架入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehengjdbc-api-uen.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. [课程]：JDBC API 入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdhiong-jdbc-api-hiian-td-e-dao-eng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. [TD]：使用 JDBC API 实现 TD 的 [DAO] 层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdeueng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. [TD]：[业务]层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdhiongonghiaihenguhiian-ui-eng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. [TD]：使用控制台程序实现 [ui] 层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uoehiong-swing-ieianhiian-ui-eng---.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. [作业]：使用 Swing 界面实现 [ui] 层 - 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehenghiong-spring-data-uaniuaniinghuuu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. [课程]：使用 Spring Data 管理关系型数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdhiong-spring-data-hiian-td-e-dao-eng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. [TD]：使用 [Spring Data] 实现 TD 的 [DAO] 层
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehenghiong-spring-mvc-ai-web-hangongaihuuu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. [课程]：使用 Spring MVC 在 Web 上公开数据库
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdeuengewebaou.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. [TD]：[业务]层的Web暴露
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tdei-web-uuhuangianeuuan.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. [TD]：为 Web 服务创建客户端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehenghiong-spring-security-aohang-web-uuangennuan.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. [课程]：使用 Spring Security 保障 Web 服务访问安全
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tduanuhonge-web-uuinuan--json.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. [TD]：选举中的 Web 服务器安全 / JSON
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ehenguauaniuanongiang.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. [课程]：跨源资源共享
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="td-uauaniuanongiang-cors.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. [TD] 跨源资源共享 (CORS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hiong-rxjava-iningiuianheng.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. 使用 RxJava 进行异步编程
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ieun.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="uu.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. 附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><a id="refheading261305838046689"></a></p>
+<h1 id="1">1. <span style="color: #365f91">简介</span></h1>
+<p><a id="refheading1051242082896917"></a></p>
+<h2 id="11">1.1. <span style="color: #4f81bd">背景</span></h2>
+<p>该文件的PDF版本可点击|<a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQBr-ZbzPrhFSa5vYIDMWR01ATryqT8g56y-zW4xFjnY3TA?e=oesrTI">此处</a>|查看。</p>
+<p>该文档中的示例可|<a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQCZ95LuIXSNRYCSJdUFCeF9AdLszsH4OfSPdDqWA9LmYt0?e=xbOEDs">在此处</a>|查阅。</p>
+<p>本文档兼具讲座和大学辅导课（TD）的功能，面向初学者。其参考资料如下：</p>
+<p><strong>参考文献</strong>： </p>
+<ol>
+  <li><a href="https://stahe.github.io/zh-java-sept-1998/"><u><span style="color: #0563c1">《Java语言入门》</span></u></a>；
+  </li>
+  <li><a href="https://stahe.github.io/zh-spring-database-juin-2015/"><u><span style="color: #0563c1">《使用Spring生态系统操作关系型数据库》</span></u></a>；
+  </li>
+</ol>
+
+<p>我们将分别将这些资料称为[<a href="https://stahe.github.io/zh-java-sept-1998/"><u><span style="color: #0563c1">ref1</span></u></a>]和[<a href="https://stahe.github.io/zh-spring-database-juin-2015/"><u><span style="color: #0563c1">ref2</span></u></a>]。 参考文献 [<a href="https://stahe.github.io/zh-java-sept-1998/"><u><span style="color: #0563c1">ref1</span></u></a>] 虽已过时（2002年），但对于本文件而言已足够，因其仅用于阐述 Java 语言语法和基本操作。完成本作业所需的其余内容在本文件中以 [Course] 为题的各章节呈现。这些章节直接摘自 [<a href="https://stahe.github.io/zh-spring-database-juin-2015/"><u><span style="color: #0563c1">ref2</span></u></a>]（2015年），部分内容已进行简化。</p>
+<p>本文件旨在从专业角度教授Java语言。因此，我们大量依赖Spring框架[http://spring.io/]，该框架在JEE（Java企业版）开发中被广泛使用。从逻辑上讲，本课程应由JEE课程接续。在Istia（昂热大学）便是如此。 目前（2015年11月），JEE是拥有硕士学位的年轻开发人员的主要就业来源。在JEE领域，除了Spring之外还有许多其他技术。Spring的优势在于易于理解，最重要的是，它提供了可在Spring生态系统之外复用的编码最佳实践。这正是本课程选择Spring的原因。</p>
+<p>本实验课已使用超过10年，并随着技术的发展而不断演进。在IstiA，该课程之后紧接着开设JEE实验课[<a href="https://stahe.github.io/zh-javaee-juin-2012/"><u><span style="color: #0563c1">Java EE入门</span></u></a>]。 后者始于2012年（现为2015年），亟待更新。该课程通过JSF2（Java Server Faces）Web框架和EJB3（Enterprise Java Bean）来介绍JEE标准。这两门教程相结合，已帮助众多学生在数字服务公司（ESN）获得JEE实习机会，并在实习结束后立即获得正式录用。</p>
+<p>你不会在这份文档中找到对Java所有方面的正式讲解。多年来，初级开发人员解决问题的方式发生了显著变化。如今，他们几乎总是转向互联网寻找代码片段，并将这些片段组合起来形成一个程序。如果我们为他们提供一门课程，他们很少使用它，而更倾向于回到互联网上。虽然我最初对这种方法持怀疑态度，但结果还是让我感到惊讶。 那些基础薄弱的学生竟然能编写出可运行的程序，而如果没有互联网的帮助，他们很可能无法成功。如今，我已完全依赖这种教学方法。</p>
+<p>代码片段无法全面展示解决方案的架构，而本文档的目标之一正是提供这样的概览。 学生将独立完成本教程作为实验练习，不设课堂讲授。课程安排中列出了各阶段的预期进度，学生可能快于或慢于该进度。他们的进度将通过一系列检查点进行验证，学生需向讲师展示这些检查点。讲师在场既是为了应要求提供解释，也是为了验证学生的工作成果。 每个人按自己的节奏进行。在分配给本次实验的36小时结束时，有些人完成的验证工作可能比其他人多出50%，但每个人——至少这是我们的目标——都将理解自己独立完成的工作。该实验无需教师指导即可完成。因此，它已发布在 [<a href="https://stahe.github.io/"><u><span style="color: #0563c1">https://stahe.github.io</span></u></a>]。</p>
+<p>本文件不适合那些寻求Java学术课程的人——即那种以循序渐进、结构化方式讲解Java，并对语法每个细节都进行解释和论证的课程。相反，这里提出的是一个实验性的方法。学生可能无法理解文档中呈现的所有内容，但他们很可能能够善用其中的内容，而对细节的理解将随着经验的积累而自然形成。</p>
+<p>本文同样不是算法课程。练习中的算法较为基础，任何刚接触算法课程的初学者都能解决。本文侧重于专业的 Java 开发环境及其丰富的库和框架，以及代码架构。我接触的大多数学生在算法方面存在薄弱环节，这一点后来也得到了他们实习导师的证实。因此，虽然精通算法很重要，但这并非本教程的重点。</p>
+<p>最后，本文档（2015年12月版）未涵盖最新的Java特性，特别是流和lambda表达式。不过，它确实使用了一些最新JDK（JDK 1.8）的元素，后续代码必须使用该JDK进行编译。</p>
+<p><a id="refheading1215821741908857"></a></p>
+<h2 id="12">1.2. <span style="color: #4f81bd">目录</span></h2>
+<p>第 2 章介绍了本教程的主题：计算选举结果。该问题非常直观。第 2 章要求您使用两种非常相似的语言——C# 和 Java——来实现解决方案。实现过程中不使用类。本章旨在介绍 Java 语法、其基本语句，以及用于构建 Java 项目的 Eclipse 集成开发环境（IDE）。</p>
+<p>第 3 章要求您使用类在 Java 中实现该作业的解决方案。其目的是介绍类、继承、接口和泛型类的概念。同时还将介绍 JUnit 单元测试的概念。</p>
+<p>第 4 章介绍了后续章节的基础概念：</p>
+<ul>
+  <li>分层架构；
+  </li>
+  <li>基于接口的编程；
+  </li>
+  <li>使用 Spring 实现前两个概念；
+  </li>
+</ul>
+
+<p><img src="images/10000000000006F80000018144D83424.png" width="624" height="135" style="width:16.521cm;height:3.565cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006F80000018144D83424.png" /></p>
+<p>第 5 章通过四个项目介绍了 Spring 框架。</p>
+<p>第 6 章介绍了 JDBC API，这是一个数据库访问接口。</p>
+<p>第7章利用JDBC API和Spring，实现了课程项目的[DAO]（数据访问对象）层。</p>
+<p><img src="images/10000000000007820000018239BDF88F.png" width="673" height="135" style="width:17.799cm;height:3.575cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007820000018239BDF88F.png" /></p>
+<p>第 8 章实现了课程项目的 [业务] 层：</p>
+<p><img src="images/10000000000007790000017F47C0F83A.png" width="622" height="124" style="width:16.45cm;height:3.293cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007790000017F47C0F83A.png" /></p>
+<p>第 9 章使用控制台应用程序实现了 TD 的 [UI] 层：</p>
+<p><img src="images/100000000000077E0000017C0888A9F0.png" width="623" height="123" style="width:16.491cm;height:3.267cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000077E0000017C0888A9F0.png" /></p>
+<p>第 10 章使用基于 Swing 组件库的图形化应用程序，实现了本教程的 [UI] 层：</p>
+<p><img src="images/10000000000007770000017CF804CD5C.png" width="621" height="123" style="width:16.431cm;height:3.267cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000007770000017CF804CD5C.png" /></p>
+<p><img src="images/10000000000001F6000001CE59DE5F8B.png" width="402" height="370" style="width:10.629cm;height:9.783cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F6000001CE59DE5F8B.png" /></p>
+<p>第 11 章介绍了如何使用 [Spring Data] 框架（Spring 生态系统中的一个组件）进行数据库管理。本章介绍了 JPA（Java Persistence API）规范，该规范允许 [DAO] 层通过操作对象而非 SQL（结构化查询语言）来管理数据。分层架构的演变如下：</p>
+<p><img src="images/10000000000006BE0000019069B4426F.png" width="518" height="120" style="width:13.7cm;height:3.175cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006BE0000019069B4426F.png" /></p>
+<p>第 12 章应用第 11 章中的概念，通过使用 [Spring Data] 为本教程实现数据库访问功能。</p>
+<p>第 13 章展示了如何使用 [Spring MVC]（Spring 生态系统的另一个分支）在 Web 上公开数据库。架构演变为客户端/服务器架构：</p>
+<p><img src="images/1000000000000705000004D0FC6F4ABB.png" width="539" height="369" style="width:14.259cm;height:9.775cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000705000004D0FC6F4ABB.png" /></p>
+<p>第14章和第15章将教程应用程序转换为客户端/服务器应用程序：</p>
+<p><img src="images/10000000000006EE000004982F0A4BCC.png" width="532" height="353" style="width:14.079cm;height:9.333cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000006EE000004982F0A4BCC.png" /></p>
+<p>第 16 章介绍了如何使用 [Spring Security]（Spring 生态系统的另一个分支）来保障 Web 应用程序的访问安全。</p>
+<p><img src="images/100000000000072000000492568C2BA8.png" width="547" height="351" style="width:14.48cm;height:9.289cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000072000000492568C2BA8.png" /></p>
+<p>第 17 章重新审视了本教程，并对选举 Web 服务进行了安全加固。</p>
+<p>第 18 章探讨了跨域请求的问题：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000007A80000041E7F7BCDF5.png" width="680" height="366" style="display:inline-block; margin:4px;width:17.999cm;height:9.678cm;" class="odt-zoomable" data-zoom-src="images/10000000000007A80000041E7F7BCDF5.png" /></td></tr></table>
+
+<ul>
+  <li><span style="color: #000000">在[1]中，一个Web应用程序提供HTML/JavaScript页面；</span>
+  </li>
+  <li><span style="color: #000000">在[2]中，浏览器执行嵌入在HTML页面中的JavaScript，以查询安全Web服务[3-4]；</span>
+  </li>
+</ul>
+
+<p>设 D1 = http://machine1:port1 为服务器 [1] 的域名，D4 = http://machine4:port4 为服务器 [4] 的域名。 如果服务器 [1] 和 [4] 不处于同一域 [D1≠D4]，则从 [3] 到 [4] 的请求被称为跨域请求。由于浏览器实施的安全限制，配置这些请求可能会遇到问题。我们将探讨一种解决方案。</p>
+<p>第 19 章通过选举应用程序实现了跨域请求。</p>
+<p><a id="refheading251519391218965"></a></p>
+<h2 id="13">1.3. <span style="color: #4f81bd">使用的工具</span></h2>
+<p><a id="refheading4233146869296"></a>以下示例已在以下环境中经过测试：</p>
+<ul>
+  <li>Windows 10 Pro 64 位计算机；
+  </li>
+  <li>JDK 1.8（<a href="#refheading1633352067866943"><u><span style="color: #0563c1">第22.1节</span></u></a>）；
+  </li>
+  <li>Spring Tool Suite 3.6.3 IDE（<a href="#refheading261305838046689"><u><span style="color: #0563c1">第1节</span></u></a>）；
+  </li>
+  <li>NetBeans 8.1（<a href="#refheading78364566070260"><u><span style="color: #0563c1">第22.4节</span></u></a>）；
+  </li>
+  <li>Chrome 浏览器（未使用其他浏览器）；
+  </li>
+  <li>Chrome 扩展程序 [Advanced Rest Client]（<a href="#refheading261305838046689"><u><span style="color: #0563c1">第 1 节</span></u></a>）；
+  </li>
+  <li>WampServer，其中包含 MySQL 数据库管理系统及其管理工具 [PhpMyAdmin]（<a href="#wampserver"><u><span style="color: #0563c1">第 22.7 节</span></u></a>）；
+  </li>
+</ul>
+
+<p>务必使用 JDK 1.8。部分示例使用了该 JDK 中的组件。大多数示例是 Maven 项目，可使用以下任一 IDE 打开：Eclipse [<a href="https://www.eclipse.org/"><u><span style="color: #0563c1">https://www.eclipse.org/</span></u></a>]、IntelliJ IDEA Community Edition [<a href="https://www.jetbrains.com/idea/download/"><u><span style="color: #0563c1">https://www.jetbrains.com/idea/download/</span></u></a>] 以及 NetBeans [<a href="https://netbeans.org/"><u><span style="color: #0563c1">https://netbeans.org/</span></u></a>]。 下文中的屏幕截图均来自 Spring Tool Suite IDE（Eclipse 的一个变体）。</p>
+<p><a id="refheading1201561767547304"></a></p>
+<h2 id="14">1.4. <span style="color: #4f81bd">支持</span></h2>
+<p>本文档中的 Eclipse 项目可从 [<a href="https://stahe.github.io/zh-java-spring-dec-2015/"><u><span style="color: #0563c1">https://stahe.github.io/zh-java-spring-dec-2015/</span></u></a>] 获取。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005AC000002E5B53D0CE8.png" width="680" height="347" style="display:inline-block; margin:4px;width:17.999cm;height:9.185cm;" class="odt-zoomable" data-zoom-src="images/10000000000005AC000002E5B53D0CE8.png" /></td></tr></table>
+
+<p>要导入某章的项目，请按照[1-8]中的说明在Eclipse中操作：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000059A00000385CFEED76A.png" width="680" height="427" style="display:inline-block; margin:4px;width:17.999cm;height:11.308cm;" class="odt-zoomable" data-zoom-src="images/100000000000059A00000385CFEED76A.png" /></td></tr></table>
+
+<p>大多数项目均为 Maven 项目。若加载后出现错误，请按 [Alt-F5] 并按照 [9-10] 中的步骤操作。所选的 Maven 项目将被重新构建。</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000055A000004168EAED8F9.png" width="680" height="519" style="display:inline-block; margin:4px;width:17.999cm;height:13.742cm;" class="odt-zoomable" data-zoom-src="images/100000000000055A000004168EAED8F9.png" /></td></tr></table>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 <strong>Serge Tahé</strong> 编写，根据
+<em>知识共享 署名-非商业性使用-
+相同方式共享 3.0 未本地化</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
